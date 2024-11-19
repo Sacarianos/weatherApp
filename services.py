@@ -9,8 +9,10 @@ load_dotenv()
 api_key = os.getenv('API_KEY')
 
 def get_weather(zip_code, units='metric'):
+
+    units = "imperial"
     
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={zip_code}&appid={api_key}"
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={zip_code}&appid={api_key}&units={units}"
     
     print(url)
     
