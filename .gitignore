@@ -26,3 +26,5 @@ include/
 # macOS and Windows system files
 .DS_Store
 Thumbs.db
+
+favorite.json

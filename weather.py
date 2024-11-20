@@ -1,12 +1,13 @@
 from services import get_weather, display_weather, display_forecast, get_forecast
+from favorites import add_favorite, remove_favorite, view_favorites
 
 def main():
     print("\n  ***Welcome to the Weather App***   \n\n")
 
-    print("                MENU         ")
+    print("                MENU         \n")
     menu = 0 
     while menu not in [1,2,3,4,5]:
-        menu = int(input("1. Check current weather \n2. Check 5 day forecast\n3. Favorite cities\n4. add Favorite citiy \n5. Delete favorite city\n"))
+        menu = int(input("1. Check current weather \n2. Check 5 day forecast\n3. Favorite cities\n4. add to Favorite cities \n5. Delete favorite city\n"))
         if menu not in [1,2,3,4,5]:
             print("\nWrong input\n")
         
@@ -15,18 +16,22 @@ def main():
                 zip = input("Enter the zip code for your location: ")
                 units = input("Choose temperature units (C for Celsius, F for Fahrenheit): ").lower()
                 units = 'metric' if units == 'c' else 'imperial'  # default to Celsius if invalid input
-                print(display_weather(get_weather(zip, units)))
+                display_weather(get_weather(zip, units))
             case 2:
                 zip = input("Enter the zip code for your location: ")
                 units = input("Choose temperature units (C for Celsius, F for Fahrenheit): ").lower()
                 units = 'metric' if units == 'c' else 'imperial'  # default to Celsius if invalid input
-                print(display_forecast(get_forecast(zip, units)))
+                display_forecast(get_forecast(zip, units))
             case 3:
-                pass
+                view_favorites()
             case 4:
-                pass
+                city = input("Enter the name of the city: ")
+                zip = input("Enter the zip code of the city: ")
+                add_favorite(city, zip)
             case 5:
-                pass
+                city = input("Enter the name of the city: ")
+                zip = input("Enter the zip code of the city: ")
+                remove_favorite(city, zip)
     
     
 
