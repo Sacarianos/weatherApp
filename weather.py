@@ -5,11 +5,9 @@ def main():
     print("\n  ***Welcome to the Weather App***   \n\n")
 
     print("                MENU         \n")
-    menu = 0 
-    while menu not in [1,2,3,4,5]:
-        menu = int(input("1. Check current weather \n2. Check 5 day forecast\n3. Favorite cities\n4. add to Favorite cities \n5. Delete favorite city\n"))
-        if menu not in [1,2,3,4,5]:
-            print("\nWrong input\n")
+    while True:
+        menu = int(input("1. Check current weather \n2. Check 5 day forecast\n3. Favorite cities\n4. add to Favorite cities \n5. Delete favorite city\n6. Exit"))
+    
         
         match menu:
             case 1:
@@ -32,6 +30,13 @@ def main():
                 city = input("Enter the name of the city: ")
                 zip = input("Enter the zip code of the city: ")
                 remove_favorite(city, zip)
+            case 6:
+                print("Goodbye!")
+                break
+
+            case _:
+                print("Invalid choice. Please try again.")
+
     
     
 
